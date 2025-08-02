@@ -13,14 +13,28 @@
     }
     .container {
       display: flex;
+      flex-direction: column;
       min-height: 100vh;
     }
+    @media (min-width: 768px) {
+      .container {
+        flex-direction: row;
+      }
+    }
     .sidebar {
-      width: 250px;
+      width: 100%;
       background: #fbfbfb;
-      border-right: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
       padding: 20px;
       box-sizing: border-box;
+    }
+    @media (min-width: 768px) {
+      .sidebar {
+        width: 250px;
+        border-right: 1px solid #ccc;
+        border-bottom: none;
+        height: 100vh;
+      }
     }
     .sidebar h1 {
       font-size: 20px;
@@ -30,29 +44,33 @@
       display: block;
       text-decoration: none;
       color: #000;
-      margin-bottom: 2px;
+      margin-bottom: 8px;
     }
     .sidebar nav a:hover {
       text-decoration: underline;
     }
     .content {
       flex-grow: 1;
-      padding: 10px;
+      padding: 20px;
       box-sizing: border-box;
     }
     .project {
-      margin-bottom: 0px;
+      margin-bottom: 40px;
     }
-    .project h2 {
-      margin-bottom: 0px;
+    .project h2, .project h3 {
+      margin-bottom: 10px;
     }
     .project p {
       margin-top: 0;
     }
-    .project img {
+    .project iframe {
+      width: 100%;
       max-width: 100%;
       height: auto;
-      margin-top: 10px;
+      aspect-ratio: 16/9;
+    }
+    a {
+      word-break: break-word;
     }
   </style>
 </head>
@@ -73,25 +91,25 @@
       </section>
       <section id="work">
         <h2>Projects</h2>
-                <div class="project">
+        <div class="project">
           <h3>2023 - <a href="https://dovzhenkocentre.org/en/exhibition/the-river-wailed-like-a-wounded-beast/">The River Wailed Like a Wounded Beast</a></h3>
           <p>Audio installation in Dovzhenko Center, Kyiv during Kyiv Biennal 2023</p>
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/vlXa408htcw?si=frz8gs8aZvdy6mgr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/vlXa408htcw?si=frz8gs8aZvdy6mgr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <div class="project">
           <h3>2016 - <a href="https://www.youtube.com/watch?v=NXbWc3-jLpI">Exile</a></h3>
           <p>A/V performance in collaboration with Kharkiv Theatre of Lightpainting</p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/NXbWc3-jLpI?si=1mTEG7CuPcTI-_tA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/NXbWc3-jLpI?si=1mTEG7CuPcTI-_tA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <div class="project">
-          <h3>2017 - <a href="https://tetramatyka.nurt.org.ua/2017/08/futureperfect-1ua"> Future Perfect</a></h3>
+          <h3>2017 - <a href="https://tetramatyka.nurt.org.ua/2017/08/futureperfect-1ua">Future Perfect</a></h3>
           <p>Audio performance with radio transmitter in Jam Factory, Lviv</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/opy0FzaBqsg?si=RVQ8FjOWCq75le2p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/opy0FzaBqsg?si=RVQ8FjOWCq75le2p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </section>
       <section id="contact">
         <h2>Contact</h2>
-        <p><a href="mailto:someone@example.com">oleksiipodat@icloud.com</a></p>
+        <p><a href="mailto:oleksiipodat@icloud.com">oleksiipodat@icloud.com</a></p>
       </section>
     </main>
   </div>
