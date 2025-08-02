@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #000;
+    }
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+    .sidebar {
+      width: 250px;
+      background: #fff;
+      border-right: 1px solid #ccc;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .sidebar h1 {
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+    .sidebar nav a {
+      display: block;
+      text-decoration: none;
+      color: #000;
+      margin-bottom: 10px;
+    }
+    .sidebar nav a:hover {
+      text-decoration: underline;
+    }
+    .content {
+      flex-grow: 1;
+      padding: 40px;
+      box-sizing: border-box;
+    }
+    .project {
+      margin-bottom: 60px;
+    }
+    .project h2 {
+      margin-bottom: 10px;
+    }
+    .project p {
+      margin-top: 0;
+    }
+    .project img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h1>My Portfolio</h1>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </aside>
+    <main class="content">
+      <section id="about">
+        <h2>About</h2>
+        <p>This is a minimalist portfolio inspired by Indexhibit.</p>
+      </section>
+      <section id="work">
+        <h2>Work</h2>
+
+        <div class="project">
+          <h3>Project One</h3>
+          <p>Short description of the project.</p>
+          <img src="project1.jpg" alt="Project One Screenshot" />
+        </div>
+
+        <div class="project">
+          <h3>Project Two</h3>
+          <p>Description for project two.</p>
+          <img src="project2.jpg" alt="Project Two Screenshot" />
+        </div>
+
+      </section>
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Email me at example@example.com</p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
