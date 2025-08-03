@@ -98,17 +98,20 @@
       .sidebar {
   width: 100%;
   background: #f5f5f5;
-  padding: 22px;
+  padding: 20px;
   text-align: left;
   box-sizing: border-box;
-  position: relative; /* на мобілках: рухається з контентом */
+            align-self: flex-start;
+  position: sticky;
+        top: 0;
+        /* щоб рухалося разом з вмістом на мобілці */
 }
 
 @media (min-width: 768px) {
   .sidebar {
     width: 250px;
-    max-height: 100vh;
-    position: sticky; /* прилипає зверху */
+    
+    position: sticky; /* прилипає при прокрутці на десктопі */
     top: 0;
     align-self: flex-start;
     border-right: 0px solid #ccc;
