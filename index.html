@@ -5,69 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Oleksii Podat / Олексій Подать</title>
   <style>
-    body 
-.blur-wrapper {
-  filter: blur(0.00000000000000001px);
-}
-
-    {
-  font-family: Arial, sans-serif;
-
-    }
-        .about-box {
-  max-width: 520px;
-  text-align: justify;
-  line-height: 1.5;
-}
-      details summary {
-    list-style: none;       /* прибирає стандартну стрілку */
-    cursor: pointer;
-  }
-      details[open] summary p {
-    display: none;
-  }
-
-  details summary::-webkit-details-marker {
-    display: none;          /* прибирає стрілку в Chrome/Safari */
-  }
-     /* Ховаємо кнопку less, поки details не відкрито */
-  .less-button {
-    display: none;
-    margin-top: 10px;
-    cursor: pointer;
-    color: blue;
-    text-decoration: underline;
-    border: none;
-    background: none;
-    font-size: 1em;
-  }
-    
-
-    {
+    /* Загальні стилі */
+    body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #f5f5f5;
-      color: #505050;}
-      
-      h1 {
-  font-size: 14px;
-}
+      color: #505050;
+    }
+    .about-box {
+      max-width: 520px;
+      text-align: justify;
+      line-height: 1.5;
+    }
+    details summary {
+      list-style: none;       /* прибирає стандартну стрілку */
+      cursor: pointer;
+    }
+    details[open] summary p {
+      display: none;
+    }
+    details summary::-webkit-details-marker {
+      display: none;          /* прибирає стрілку в Chrome/Safari */
+    }
+    /* Ховаємо кнопку less, поки details не відкрито */
+    .less-button {
+      display: none;
+      margin-top: 10px;
+      cursor: pointer;
+      color: blue;
+      text-decoration: underline;
+      border: none;
+      background: none;
+      font-size: 1em;
+    }
 
-h2 {
-  font-size: 16px;
-  color: #505050
-}
+    h1 {
+      font-size: 14px;
+    }
+    h2 {
+      font-size: 16px;
+      color: #505050;
+    }
+    h3 {
+      font-size: 14px;
+      color: #505050;
+    }
+    p {
+      font-size: 14px;
+      color: #505050;
+    }
 
-h3 {
-  font-size: 14px;
-  color: #505050
-}
-
-p {
-  font-size: 14px;
-  color: #505050
-}
-    
     .container {
       display: flex;
       flex-direction: column;
@@ -92,12 +79,11 @@ p {
         border-bottom: none;
         height: 29vh;
       }
-      
     }
     .sidebar h1 {
       font-size: 20px;
       margin-bottom: 10px;
-      color: #464646
+      color: #464646;
     }
     .sidebar nav a {
       display: block;
@@ -106,8 +92,7 @@ p {
       margin-bottom: 2px;
     }
     .sidebar nav a:hover {
-      text-decoration:;
-      color: #858585
+      color: #858585;
     }
     .content {
       flex-grow: 1;
@@ -116,166 +101,195 @@ p {
     }
     .project {
       margin-bottom: 0px;
-      color: #505050
+      color: #505050;
     }
     .project h2, .project h3 {
       margin-bottom: 10px;
-      color: #505050
+      color: #505050;
     }
     .project p {
       margin-top: 0;
-      
     }
     .project iframe {
       width: 50%;
       max-width: 50%;
       height: auto;
       aspect-ratio: 16/9;
-      color: #505050
+      color: #505050;
     }
     a {
       word-break: break-word;
-      color: #505050
+      color: #505050;
+    }
+
+    /* --- Ефект блюру з "діркою" навколо курсору --- */
+    .blur-wrapper {
+      position: relative;
+      overflow: visible;
+    }
+    .blur-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none; /* не блокує кліки */
+      backdrop-filter: blur(0.6px);
+      /* Прозора дірка (радіус 120px) навколо курсора */
+      mask-image: radial-gradient(circle 3px at var(--x) var(--y), transparent 0%, black 100%);
+      -webkit-mask-image: radial-gradient(circle 120px at var(--x) var(--y), transparent 0%, black 100%);
+      transition: mask-position 0.1s ease-out;
     }
   </style>
 </head>
 <body>
   <div class="blur-wrapper">
     <div class="container">
-    <aside class="sidebar">
-      <h1>Oleksii Podat</h1>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#work">Projects</a>
-        <a href="#performances">Live acts</a>
-        <a href="#releases">Releases</a>
-        <a href="#texts">Publications</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </aside>
-    <div class="blurred-area">
-  <main class="content">
-      <section id="about">
-        <img src="https://i.postimg.cc/k58zTtMY/temp-Image-Wx-OXOv.avif" width="150" height="150" alt='Oleksii Podat'/>
-        <h2></h2>
-        
-        <div class="about-box">
-          
-          
-  <p>Oleksii Podat (b. 1996) is an avant-garde composer and producer from Sloviansk. He works with both small and large musical forms, in particular, his compositions can be heard in audiovisual art projects and films. Radical methods of sound production, genuine pop sensitivity and avant garde playfulness distinguish his music on Ukraine's experimental scene, while his self-proclaimed "melodic noise" genre is becoming its defining component.</p>
-</div>
-      </section>
-      <section id="work">
-        <div style="max-width: 520px;">
-          
-        <h2>Projects</h2>
-          
-         <div class="project">
-          <h3>2025 - <a href="https://issueprojectroom.org/event/distant-pairs-oleksii-podat-suzanne-thorpe">Time Zone Response</a></h3>
-          <p><a href="https://issueprojectroom.org/video/distant-pairs-oleksii-podat-suzanne-thorpe">A/V project</a> in collaboration with Suzanne Thorpe (Time Based [UA] x ISSUE Project Room [US])</p>
-        </div>
-        <div class="project">
-          <h3>2025 - <a href="https://pro.festivalscope.com/film/all-roads-lead-to-you">All roads lead to you OST</a></h3>
-          <p><a href="https://vimeo.com/1062215056">Music</a> for movie, dir. Jenya Milyukos</p>
-        </div>
-        <div class="project">
-          <h3>2024 - 1</h3>
-          <p>Sound installation at DCCC, Dnipro during <a href="https://kulturamedialna.org/portfolio/sound-working-group/?lang=en">Sound Working Group residency</a></p>
-        </div>
-        <div class="project">
-          <h3>2024 - <a href="https://takflix.com/en/films/new_home">New Home OST</a></h3>
-          <p><a href="https://www.youtube.com/watch?v=I5TU1tzJlQY">Music</a> for short movie, dir. Bohdan Prykhodko</p>
-        </div>
-        <div class="project">
-          <h3>2023 - <a href="https://dovzhenkocentre.org/en/exhibition/the-river-wailed-like-a-wounded-beast/">The River Wailed Like a Wounded Beast</a></h3>
-          <p><a href="https://www.youtube.com/watch?v=vlXa408htcw">Audio installation</a> in Dovzhenko Center, Kyiv (Kyiv Biennal 2023)</p>
-        </div>
-          <p><details>
-<summary><p><u>more</u></p></summary>
-        <div class="project">
-          <h3>2023 - <a href="https://soundcloud.com/matiashova/room-of-words-maria-matiashova-music-by-oleksii-podat">Room of Words</a> (w/ Maria Matiashova)</h3>
-          <p>Music for audio installation</p>
+      <aside class="sidebar">
+        <h1>Oleksii Podat</h1>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#work">Projects</a>
+          <a href="#performances">Live acts</a>
+          <a href="#releases">Releases</a>
+          <a href="#texts">Publications</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </aside>
+      <div class="blurred-area">
+        <main class="content">
+          <section id="about">
+            <img src="https://i.postimg.cc/k58zTtMY/temp-Image-Wx-OXOv.avif" width="150" height="150" alt='Oleksii Podat'/>
+            <h2></h2>
+            <div class="about-box">
+              <p>Oleksii Podat (b. 1996) is an avant-garde composer and producer from Sloviansk. He works with both small and large musical forms, in particular, his compositions can be heard in audiovisual art projects and films. Radical methods of sound production, genuine pop sensitivity and avant garde playfulness distinguish his music on Ukraine's experimental scene, while his self-proclaimed "melodic noise" genre is becoming its defining component.</p>
             </div>
-         <div class="project">
-          <h3>2023 - <a href="https://vimeo.com/932369185?fl=pl&fe=ti&pgroup=plc">100% OFF OST</a></h3>
-          <p>Music for short movie, dir. Sashko Protyah</p>
-            </div>
-        <div class="project">
-          <h3>2022 - <a href="https://www.youtube.com/watch?v=Huo49wI8FE4">The 51st International Film Festival Molodist, Kyiv</a></h3>
-          <p><a href="https://www.youtube.com/watch?v=g8kDOG5tg6w">Music</a> for trailers</p>
-            </div>
-        <div class="project">
-          <h3>2019 - <a href="https://www.youtube.com/watch?v=SS_RTLlqS0k&embeds_referring_euri=https%3A%2F%2Fsites.google.com%2F&source_ve_path=MjM4NTE">Life outside CV OST</a></h3>
-          <p>Soundtrack for short movie, dir. Sashko Protyah</p>
-            </div>
-        <div class="project">
-          <h3>2016 - <a href="https://www.youtube.com/watch?v=NXbWc3-jLpI">Exile</a> (w/ Kharkiv Theatre of Lightpainting)</h3>
-          <p>A/V performance in collaboration with </p>
-          </div>
-        <div class="project">
-          <h3>2017 - <a href="https://tetramatyka.nurt.org.ua/2017/08/futureperfect-1ua">Future Perfect</a></h3>
-          <p><a href="https://youtu.be/opy0FzaBqsg">Audio performance</a> with radio transmitter at Jam Factory, Lviv</p>
-            </div></details>
-        </div>
-      </section>
-      <section id="performances">
-        <h2>Live acts</h2>
-        <div style="max-width: 500px;">
-        <p><b>16.08.2025</b> - Cxema Backstage - Otel', Kyiv</p>
-        <p><b>19.07.2025</b> - Detaliзація - Ivano-Frankivsk</p>
-        <p><b>28.06.2025</b> - Bloomed in September label showcase - 20ft Radio, Kyiv</p>
-        <p><b>21.06.2025</b> - Plyazh festival - Scene 5, Kharkiv</p>
-        <p><b>15.06.2025</b> - Brudnyi Pes festival - Keller, Kyiv</p>
-        <p><b>08.06.2025</b> - Zhanna Kadyrova's Instrument performance - Lviv Railway Station</p>
-        <p><details>
-  <summary><p><u>more</u></p></summary>
-  <p><b>07.06.2025</b> - Vegan Weekend - K41 Concert Hall, Kyiv</p>
-        <p><b>05.06.2025</b> - Word Attempts performance (w/ Maria Matiashova, Tamara Turliun) - Dasha Katsurina Studio X Naked Room, Kyiv</p>
-        <p><b>24.05.2025</b> - Distant Pairs w/ Maryana Klochko - Jam Factory, Lviv</p>
-        <p><b>14.05.2025</b> - нойз щосереди (Noise Every Wednesday) - Otel', Kyiv</p>
-        <p><b>05.04.2025</b> - концерт шумової музики (noise music concert) - Miskyi Theatre, Kyiv</p>
-        <p><b>22.03.2025</b> - Світломузика - HVLV, Kyiv</p>
-        <p><b>28.12.2024</b> - середмістя - Abo, Kyiv</p>
-        <p><b>25.12.2024</b> - нойз щосереди (Noise Every Wednesday) - Otel', Kyiv</p>
-        <p><b>19.12.2024</b> - поле-фонія, концерт-розмова w/ Mykola Lebed - RVRB, Kyiv</p>
-          </details>
-        </div>
-           </section>
-      <section id="releases">
-      <h2>Releases</h2>
-        <p><b>2024</b> - <a href="https://orcd.co/nadni">лагідні стосунки зі світом на дні землі</a> - ПОТОП</p>
-        <p><b>2023</b> - <a href="https://podat.bandcamp.com/album/golden-gate">Golden Gate</a></p>
-        <img src='https://i.postimg.cc/vmhq2Rxk/temp-Image-GLl-Hs-D.avif'>
-        <p style="font-size: 16px;"><a href="https://www.linktr.ee/podat" target="_blank" rel="noopener noreferrer">more</a></p>
-      </section>
-      <section id="texts">
-        <h2>Publications</h2>
-        <div style="max-width: 500px;">
-        <p><a href="https://easterndaze.net/noise-every-wednesday-a-lesson-in-sustainability-from-kyivs-experimental-scene/">Noise Every Wednesday: A Lesson in Sustainability From Kyiv’s Experimental Scene</a> for Easterndaze by Olena Pohonchenkova</p>
-        <p><a href="https://suspilne.media/culture/883475-ludi-sukaut-bezumovnogo-kohanna-oleksij-podat-pro-albom-spivzaleznist-u-stosunkah-nojz-muziku-ta-slovansk/">Suspilne interview (ukr)</a></p>
-        <p></p>
-        <p><a href="https://artslooker.com/varto-chy-ni-pro-kompiliatsiiu-blackout-tape-vid-20ft-records/">20ft Records 'Blackout Tape' review for artslooker (ukr)</a></p>
-      <p><a href="https://www.by-text.com/texts/narczys-v-eho-kameri/">Narcissus in Echo chamber - essay for by-text (ukr)</a></p>
-        </div>
           </section>
-        <section id="contact">
-        <h2>Contact</h2>
-        <p><a href="mailto:oleksiipodat@icloud.com">oleksiipodat@icloud.com</a></p>
-      </section>
-    
-           
-</main>
-</div>
+          <section id="work">
+            <div style="max-width: 520px;">
+              <h2>Projects</h2>
+              <div class="project">
+                <h3>2025 - <a href="https://issueprojectroom.org/event/distant-pairs-oleksii-podat-suzanne-thorpe">Time Zone Response</a></h3>
+                <p><a href="https://issueprojectroom.org/video/distant-pairs-oleksii-podat-suzanne-thorpe">A/V project</a> in collaboration with Suzanne Thorpe (Time Based [UA] x ISSUE Project Room [US])</p>
+              </div>
+              <div class="project">
+                <h3>2025 - <a href="https://pro.festivalscope.com/film/all-roads-lead-to-you">All roads lead to you OST</a></h3>
+                <p><a href="https://vimeo.com/1062215056">Music</a> for movie, dir. Jenya Milyukos</p>
+              </div>
+              <div class="project">
+                <h3>2024 - 1</h3>
+                <p>Sound installation at DCCC, Dnipro during <a href="https://kulturamedialna.org/portfolio/sound-working-group/?lang=en">Sound Working Group residency</a></p>
+              </div>
+              <div class="project">
+                <h3>2024 - <a href="https://takflix.com/en/films/new_home">New Home OST</a></h3>
+                <p><a href="https://www.youtube.com/watch?v=I5TU1tzJlQY">Music</a> for short movie, dir. Bohdan Prykhodko</p>
+              </div>
+              <div class="project">
+                <h3>2023 - <a href="https://dovzhenkocentre.org/en/exhibition/the-river-wailed-like-a-wounded-beast/">The River Wailed Like a Wounded Beast</a></h3>
+                <p><a href="https://www.youtube.com/watch?v=vlXa408htcw">Audio installation</a> in Dovzhenko Center, Kyiv (Kyiv Biennal 2023)</p>
+              </div>
+              <p>
+                <details>
+                  <summary><p><u>more</u></p></summary>
+                  <div class="project">
+                    <h3>2023 - <a href="https://soundcloud.com/matiashova/room-of-words-maria-matiashova-music-by-oleksii-podat">Room of Words</a> (w/ Maria Matiashova)</h3>
+                    <p>Music for audio installation</p>
+                  </div>
+                  <div class="project">
+                    <h3>2023 - <a href="https://vimeo.com/932369185?fl=pl&fe=ti&pgroup=plc">100% OFF OST</a></h3>
+                    <p>Music for short movie, dir. Sashko Protyah</p>
+                  </div>
+                  <div class="project">
+                    <h3>2022 - <a href="https://www.youtube.com/watch?v=Huo49wI8FE4">The 51st International Film Festival Molodist, Kyiv</a></h3>
+                    <p><a href="https://www.youtube.com/watch?v=g8kDOG5tg6w">Music</a> for trailers</p>
+                  </div>
+                  <div class="project">
+                    <h3>2019 - <a href="https://www.youtube.com/watch?v=SS_RTLlqS0k&embeds_referring_euri=https%3A%2F%2Fsites.google.com%2F&source_ve_path=MjM4NTE">Life outside CV OST</a></h3>
+                    <p>Soundtrack for short movie, dir. Sashko Protyah</p>
+                  </div>
+                  <div class="project">
+                    <h3>2016 - <a href="https://www.youtube.com/watch?v=NXbWc3-jLpI">Exile</a> (w/ Kharkiv Theatre of Lightpainting)</h3>
+                    <p>A/V performance in collaboration with </p>
+                  </div>
+                  <div class="project">
+                    <h3>2017 - <a href="https://tetramatyka.nurt.org.ua/2017/08/futureperfect-1ua">Future Perfect</a></h3>
+                    <p><a href="https://youtu.be/opy0FzaBqsg">Audio performance</a> with radio transmitter at Jam Factory, Lviv</p>
+                  </div>
+                </details>
+              </p>
+            </div>
+          </section>
+          <section id="performances">
+            <h2>Live acts</h2>
+            <div style="max-width: 500px;">
+              <p><b>16.08.2025</b> - Cxema Backstage - Otel', Kyiv</p>
+              <p><b>19.07.2025</b> - Detaliзація - Ivano-Frankivsk</p>
+              <p><b>28.06.2025</b> - Bloomed in September label showcase - 20ft Radio, Kyiv</p>
+              <p><b>21.06.2025</b> - Plyazh festival - Scene 5, Kharkiv</p>
+              <p><b>15.06.2025</b> - Brudnyi Pes festival - Keller, Kyiv</p>
+              <p><b>08.06.2025</b> - Zhanna Kadyrova's Instrument performance - Lviv Railway Station</p>
+              <p>
+                <details>
+                  <summary><p><u>more</u></p></summary>
+                  <p><b>07.06.2025</b> - Vegan Weekend - K41 Concert Hall, Kyiv</p>
+                  <p><b>05.06.2025</b> - Word Attempts performance (w/ Maria Matiashova, Tamara Turliun) - Dasha Katsurina Studio X Naked Room, Kyiv</p>
+                  <p><b>24.05.2025</b> - Distant Pairs w/ Maryana Klochko - Jam Factory, Lviv</p>
+                  <p><b>14.05.2025</b> - нойз щосереди (Noise Every Wednesday) - Otel', Kyiv</p>
+                  <p><b>05.04.2025</b> - концерт шумової музики (noise music concert) - Miskyi Theatre, Kyiv</p>
+                  <p><b>22.03.2025</b> - Світломузика - HVLV, Kyiv</p>
+                  <p><b>28.12.2024</b> - середмістя - Abo, Kyiv</p>
+                  <p><b>25.12.2024</b> - нойз щосереди (Noise Every Wednesday) - Otel', Kyiv</p>
+                  <p><b>19.12.2024</b> - поле-фонія, концерт-розмова w/ Mykola Lebed - RVRB, Kyiv</p>
+                </details>
+              </p>
+            </div>
+          </section>
+          <section id="releases">
+            <h2>Releases</h2>
+            <p><b>2024</b> - <a href="https://orcd.co/nadni">лагідні стосунки зі світом на дні землі</a> - ПОТОП</p>
+            <p><b>2023</b> - <a href="https://podat.bandcamp.com/album/golden-gate">Golden Gate</a></p>
+            <img src='https://i.postimg.cc/vmhq2Rxk/temp-Image-GLl-Hs-D.avif'>
+            <p style="font-size: 16px;"><a href="https://www.linktr.ee/podat" target="_blank" rel="noopener noreferrer">more</a></p>
+          </section>
+          <section id="texts">
+            <h2>Publications</h2>
+            <div style="max-width: 500px;">
+              <p><a href="https://easterndaze.net/noise-every-wednesday-a-lesson-in-sustainability-from-kyivs-experimental-scene/">Noise Every Wednesday: A Lesson in Sustainability From Kyiv’s Experimental Scene</a> for Easterndaze by Olena Pohonchenkova</p>
+              <p><a href="https://suspilne.media/culture/883475-ludi-sukaut-bezumovnogo-kohanna-oleksij-podat-pro-albom-spivzaleznist-u-stosunkah-nojz-muziku-ta-slovansk/">Suspilne interview (ukr)</a></p>
+              <p><a href="https://artslooker.com/varto-chy-ni-pro-kompiliatsiiu-blackout-tape-vid-20ft-records/">20ft Records 'Blackout Tape' review for artslooker (ukr)</a></p>
+              <p><a href="https://www.by-text.com/texts/narczys-v-eho-kameri/">Narcissus in Echo chamber - essay for by-text (ukr)</a></p>
+            </div>
+          </section>
+          <section id="contact">
+            <h2>Contact</h2>
+            <p><a href="mailto:oleksiipodat@icloud.com">oleksiipodat@icloud.com</a></p>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="blur-overlay"></div>
   </div>
+
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const links = document.querySelectorAll("a[href^='http']");
-    links.forEach(link => {
-      link.setAttribute("target", "_blank");
-      link.setAttribute("rel", "noopener noreferrer");
+    document.addEventListener("DOMContentLoaded", function () {
+      const links = document.querySelectorAll("a[href^='http']");
+      links.forEach(link => {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
+      });
     });
-  });
-</script>
-</div>
+
+    // Ефект блюру з прозорою "діркою" навколо курсору
+    const blurOverlay = document.querySelector('.blur-overlay');
+
+    window.addEventListener('mousemove', (e) => {
+      blurOverlay.style.setProperty('--x', e.clientX + 'px');
+      blurOverlay.style.setProperty('--y', e.clientY + 'px');
+    });
+    window.addEventListener('mouseout', () => {
+      // Ховаємо дірку при виході курсора за межі вікна
+      blurOverlay.style.setProperty('--x', '-9999px');
+      blurOverlay.style.setProperty('--y', '-9999px');
+    });
+  </script>
 </body>
 </html>
