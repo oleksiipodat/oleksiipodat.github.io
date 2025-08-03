@@ -211,6 +211,10 @@
           background-position: 0% 50%;
         }
       }
+      .img {
+      transition: filter 0.3s ease;
+    }
+      
     </style>
   </head>
   <body>
@@ -234,7 +238,7 @@
         <div class="blurred-area">
           <main class="content">
             <section id="about">
-              <img
+              <img id="blur-image"
                 src="https://i.postimg.cc/k58zTtMY/temp-Image-Wx-OXOv.avif"
                 width="150"
                 height="150"
@@ -440,5 +444,14 @@
         const sidebar = document.querySelector(".sidebar");
         let lastScrollTop = window.scrollY;
     </script>
+    <script>
+    const img = document.getElementById('blur-image');
+    let blurLevel = 0;
+
+    img.addEventListener('click', () => {
+      blurLevel += 0.3; // кожен клік додає 1px розмиття
+      img.style.filter = `blur(${blurLevel}px)`;
+    });
+  </script>
   </body>
 </html>
