@@ -35,6 +35,8 @@
         background: #f5f5f5;
         color: #505050;
       }
+      
+}
 
       .sidebar h1 {
         font-size: 18px;
@@ -58,6 +60,7 @@
       .no-underline {
   text-decoration: none;
 }
+   
       details summary {
         list-style: none;
         cursor: pointer;
@@ -221,6 +224,7 @@
     <div class="blur-wrapper">
       <div class="container">
         <aside class="sidebar">
+          
           <h1><a href="index.html" class="no-underline">Oleksii Podat</a></h1>
           <nav>
             <a href="#about">About</a>
@@ -440,17 +444,35 @@
       </div>
       <div class="blur-overlay"></div>
     </div>
+<script>
+  const now = new Date();
+  const hour = now.getHours();
 
+  // Нічний режим з 22:00 до 6:00
+  const isNight = hour >= 22 || hour < 5;
+
+  if (isNight) {
+    document.documentElement.style.filter = 'invert(1) hue-rotate(180deg)';
+
+    // Повертаємо зображення до нормального вигляду
+    const img = document.getElementById('blur-image');
+    if (img) {
+      img.style.filter = 'invert(1) hue-rotate(180deg)'; // двічі — як компенсація
+    }
+  }
+</script>
   <script>
       const img = document.getElementById('blur-image');
       let blurLevel = 0;
       let scaleLevel = 1;
       let opacityLevel = 1;
+    
 
-      img.addEventListener('click', () => {
-        blurLevel += 1.4;
+      img.addEventListener('click', () => { img.style.filter = 'invert(1) hue-rotate(180deg)';
+         img.style.filter = 'invert(1) hue-rotate(180deg)';
+        blurLevel += 1;
         scaleLevel += 0;
-        opacityLevel = Math.max(0, 1 - blurLevel * 0.02);
+        opacityLevel = Math.max(0, 1 - blurLevel * 0.2);
 
         img.style.filter = `blur(${blurLevel}px)`;
         img.style.transform = `scale(${scaleLevel})`;
