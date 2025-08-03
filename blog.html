@@ -101,7 +101,7 @@
     }
     .sidebar {
       width: 100%;
-      background: #fbfbfb;
+      
       border-bottom: 0px solid #ccc;
       padding: 18px;
       box-sizing: border-box;
@@ -253,5 +253,22 @@
       blurOverlay.style.setProperty('--y', '-9999px');
     });
   </script>
+  <script>
+  const now = new Date();
+  const hour = now.getHours();
+
+  // Нічний режим з 22:00 до 6:00
+  const isNight = hour >= 22 || hour < 5;
+
+  if (isNight) {
+    document.documentElement.style.filter = 'invert(1) hue-rotate(180deg)';
+
+    // Повертаємо зображення до нормального вигляду
+    const img = document.getElementById('blur-image');
+    if (img) {
+      img.style.filter = 'invert(1) hue-rotate(180deg)'; // двічі — як компенсація
+    }
+  }
+</script>
 </body>
 </html>
