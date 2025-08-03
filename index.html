@@ -134,10 +134,33 @@
       height: 100vh;
       pointer-events: none; /* не блокує кліки */
       backdrop-filter: blur(0.6px);
-      /* Прозора дірка (радіус 120px) навколо курсора */
+      /* Прозора дірка (радіус 3px) навколо курсора */
       mask-image: radial-gradient(circle 3px at var(--x) var(--y), transparent 0%, black 100%);
       -webkit-mask-image: radial-gradient(circle 120px at var(--x) var(--y), transparent 0%, black 100%);
       transition: mask-position 0.1s ease-out;
+    }
+
+    /* Анімація переливання кольору для лінку Listen */
+    .rainbow-link {
+      font-weight: normal;
+      text-decoration: none;
+      background: linear-gradient(
+        -45deg,
+        #1DB954,   /* Spotify green */
+        #00AACC,   /* Bandcamp turquoise */
+        #000000    /* Black */
+        
+      );
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: colorShift 8s linear infinite;
+    }
+
+    @keyframes colorShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
   </style>
 </head>
@@ -152,8 +175,8 @@
           <a href="#performances">Live acts</a>
           <a href="#releases">Releases</a>
           <a href="#texts">Publications</a>
-<a href="https://www.linktr.ee/podat" target="_blank" rel="noopener noreferrer">Listen</a>
           <a href="#contact">Contact</a>
+          <a href="https://www.linktr.ee/podat" target="_blank" rel="noopener noreferrer" class="rainbow-link">Stream</a>
         </nav>
       </aside>
       <div class="blurred-area">
@@ -291,10 +314,6 @@
       blurOverlay.style.setProperty('--x', '-9999px');
       blurOverlay.style.setProperty('--y', '-9999px');
     });
-    
-    
-    
-    
   </script>
 </body>
 </html>
