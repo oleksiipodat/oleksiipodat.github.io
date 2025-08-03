@@ -293,74 +293,7 @@
     
     
     
-    const blurOverlay = document.querySelector('.blur-overlay');
-let holeRadius = 120;  // початковий радіус "дірки"
-let targetRadius = 120;
-let x = -9999;
-let y = -9999;
-
-// Плавна анімація радіуса дірки
-function animateRadius() {
-  if (Math.abs(holeRadius - targetRadius) < 0.5) {
-    holeRadius = targetRadius;
-    blurOverlay.style.setProperty('--hole-radius', holeRadius + 'px');
-    return;
-  }
-  holeRadius += (targetRadius - holeRadius) * 0.15;
-  blurOverlay.style.setProperty('--hole-radius', holeRadius + 'px');
-  requestAnimationFrame(animateRadius);
-}
-
-animateRadius(); // запуск анімації
-
-// Оновлення позиції і радіуса при русі миші
-window.addEventListener('mousemove', (e) => {
-  x = e.clientX;
-  y = e.clientY;
-  targetRadius = 120; // максимальний радіус — блюр видно
-  blurOverlay.style.setProperty('--x', x + 'px');
-  blurOverlay.style.setProperty('--y', y + 'px');
-});
-
-// Коли мишка виходить за межі вікна — ховаємо дірку (плавно зменшуємо)
-window.addEventListener('mouseout', () => {
-  targetRadius = 0; // радіус 0 — блюр зникає
-  // можна не змінювати координати, щоб дірка плавно звужувалась
-});
-
-// Для сенсорних екранів:
-
-// Початок дотику — оновлюємо позицію, показуємо блюр
-window.addEventListener('touchstart', (e) => {
-  if (e.touches.length > 0) {
-    const touch = e.touches[0];
-    x = touch.clientX;
-    y = touch.clientY;
-    targetRadius = 120;
-    blurOverlay.style.setProperty('--x', x + 'px');
-    blurOverlay.style.setProperty('--y', y + 'px');
-  }
-});
-
-// Рух пальцем — оновлюємо позицію блюру
-window.addEventListener('touchmove', (e) => {
-  if (e.touches.length > 0) {
-    const touch = e.touches[0];
-    x = touch.clientX;
-    y = touch.clientY;
-    targetRadius = 120;
-    blurOverlay.style.setProperty('--x', x + 'px');
-    blurOverlay.style.setProperty('--y', y + 'px');
-  }
-});
-
-// Кінець дотику — плавно ховаємо блюр (зменшуємо радіус)
-window.addEventListener('touchend', () => {
-  targetRadius = 0;
-});
-window.addEventListener('touchcancel', () => {
-  targetRadius = 0;
-});
+    
   </script>
 </body>
 </html>
