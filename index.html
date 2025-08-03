@@ -52,6 +52,11 @@
         -webkit-text-fill-color: #f5f5f5;
         color: #f5f5f5;
       }
+      .notescolor::selection {
+        background: #505050;
+        -webkit-text-fill-color: #f5f5f5;
+        color: #f5f5f5;
+      }
       .about-box {
         max-width: 520px;
         text-align: justify;
@@ -200,7 +205,19 @@
         -webkit-text-fill-color: transparent;
         animation: colorShift 10s linear infinite;
       }
+      .textcolor {
+        font-weight: normal;
+        text-decoration: none;
+        background: linear-gradient(-60deg, #0000ff, #ff003f, #b3b3f5, #626262, #505050, #9b9bc4);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: colorShift 10s linear infinite;
+      }
       .rainbow-link:hover {
+        animation-play-state: paused;
+      }
+      .textcolor:hover {
         animation-play-state: paused;
       }
       @keyframes colorShift {
@@ -233,10 +250,8 @@
             <a href="#releases">Releases</a>
             <a href="#texts">Publications</a>
             <a href="#contact">Contact</a>
-            <a href="https://www.linktr.ee/podat" target="_blank" rel="noopener noreferrer" class="rainbow-link"
-              >Stream</a
-            >
-            <div hidden><a href="https://www.oleksiipodat.com/blog.html">Notes</a></div>
+            <a href="https://www.linktr.ee/podat" target="_blank" rel="noopener noreferrer" class="rainbow-link">Stream</a>
+         <a href="https://www.oleksiipodat.com/blog.html" class="textcolor">Notes</a>
           </nav>
         </aside>
         <div class="blurred-area">
