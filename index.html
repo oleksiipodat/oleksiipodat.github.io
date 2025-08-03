@@ -55,6 +55,9 @@
         text-align: justify;
         line-height: 1.2;
       }
+      .no-underline {
+  text-decoration: none;
+}
       details summary {
         list-style: none;
         cursor: pointer;
@@ -65,16 +68,7 @@
       details summary::-webkit-details-marker {
         display: none;
       }
-      .less-button {
-        display: none;
-        margin-top: 10px;
-        cursor: pointer;
-        color: blue;
-        text-decoration: underline;
-        border: none;
-        background: none;
-        font-size: 1em;
-      }
+      
       h1 {
         font-size: 14px;
       }
@@ -83,11 +77,11 @@
         color: #505050;
       }
       h3 {
-        font-size: 14px;
+        font-size: 16px;
         color: #505050;
       }
       p {
-        font-size: 14px;
+        font-size: 16px;
         color: #505050;
       }
       .white-link {
@@ -148,10 +142,7 @@
         line-height: 1.5;
         text-decoration: none;
         color: #505050;
-        margin-bottom: 2px;
-      }
-      .sidebar nav a:hover {
-        color: #858585;
+        margin-bottom: 0px;
       }
       .content {
         flex-grow: 1;
@@ -159,7 +150,7 @@
         box-sizing: border-box;
       }
       .project {
-        margin-bottom: 0px;
+        margin-bottom: 20px;
         color: #505050;
       }
       .project h2,
@@ -226,7 +217,7 @@
     <div class="blur-wrapper">
       <div class="container">
         <aside class="sidebar">
-          <h1>Oleksii Podat</h1>
+          <h1><a href="https://www.oleksiipodat.com" class="no-underline">Oleksii Podat</a></h1>
           <nav>
             <a href="#about">About</a>
             <a href="#work">Projects</a>
