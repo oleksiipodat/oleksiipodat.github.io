@@ -221,6 +221,7 @@
         <main class="content">
           <section id="about">
             <div class="about-box">
+              <audio src="audio/music.mp3" autoplay loop></audio>
               <h2>03.08.-08.08.2025</h2>
               <p>well</p>
               <img src="https://i.postimg.cc/3WnXgRn8/temp-Imageav-BTTj.avif" alt="temp-Imageav-BTTj"/>
@@ -273,6 +274,10 @@
       img.style.filter = 'invert(1) hue-rotate(180deg)'; // двічі — як компенсація
     }
   }
+</script>
+  <script>
+  const audio = document.getElementById('bg-music');
+  audio.volume = 0.2; // 50% гучності
 </script>
 </body>
 </html>
