@@ -511,23 +511,36 @@ section.is-blurred {
       });
     </script>
 
-     <script>
-  const menuLinks = document.querySelectorAll('.sidebar nav a[href^="#"]');
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('main section');
+  const menuLinks = document.querySelectorAll('.sidebar nav a[href^="#"]');
 
+  function focusSection(targetSection) {
+    sections.forEach(section => {
+      section.classList.toggle(
+        'is-blurred',
+        section !== targetSection
+      );
+    });
+  }
+
+  // Клік по меню
   menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      const targetId = link.getAttribute('href').substring(1);
-
-      sections.forEach(section => {
-        if (section.id === targetId) {
-          section.classList.remove('is-blurred');
-        } else {
-          section.classList.add('is-blurred');
-        }
-      });
+    link.addEventListener('click', e => {
+      const id = link.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      if (target) focusSection(target);
     });
   });
+
+  // Клік по самій секції
+  sections.forEach(section => {
+    section.addEventListener('click', () => {
+      focusSection(section);
+    });
+  });
+});
 </script>
           
   </body>
