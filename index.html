@@ -234,9 +234,37 @@
       .img {
       transition: filter 0.3s ease;
     }
+      section {
+  transition: filter 0.4s ease, opacity 0.4s ease;
+}
+
+section.is-blurred {
+  filter: blur(4px);
+  opacity: 0.35;
+  pointer-events: none;
+}
       
     </style>
   </head>
+
+  <script>
+  const menuLinks = document.querySelectorAll('.sidebar nav a[href^="#"]');
+  const sections = document.querySelectorAll('main section');
+
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const targetId = link.getAttribute('href').substring(1);
+
+      sections.forEach(section => {
+        if (section.id === targetId) {
+          section.classList.remove('is-blurred');
+        } else {
+          section.classList.add('is-blurred');
+        }
+      });
+    });
+  });
+</script>
   <body>
     <div class="blur-wrapper">
       <div class="container">
