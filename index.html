@@ -478,7 +478,7 @@ section.is-blurred {
   const hour = now.getHours();
 
   // Нічний режим з 22:00 до 6:00
-  const isNight = hour >= 22 || hour < 5;
+  const isNight = hour >= 20 || hour < 7;
 
   if (isNight) {
     document.documentElement.style.filter = 'invert(1) hue-rotate(180deg)';
