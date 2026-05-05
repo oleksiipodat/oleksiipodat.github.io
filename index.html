@@ -570,6 +570,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+      document.addEventListener('click', (e) => {
+  // якщо клік по лінку — нічого не робимо
+  if (e.target.closest('a')) return;
+
+  // якщо клік по секції — теж нічого (бо там уже є логіка)
+  if (e.target.closest('main section')) return;
+
+  // інакше — знімаємо блюр з усіх
+  document.querySelectorAll('main section').forEach(section => {
+    section.classList.remove('is-blurred');
+  });
+});
 </script>
           <div id="intro-overlay">
   <div id="countdown-container">
