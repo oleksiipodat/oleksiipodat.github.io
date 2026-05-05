@@ -593,11 +593,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const s = Math.floor((diff / 1000) % 60);
 
     // формат: DDHHMMSS (тільки цифри)
-    document.getElementById("countdown").textContent =
-      String(d).padStart(2, "0") +
-      String(h).padStart(2, "0") +
-      String(m).padStart(2, "0") +
-      String(s).padStart(2, "0");
+   document.getElementById("countdown").textContent =
+  String(d).padStart(2, "0") + " " +
+  String(h).padStart(2, "0") + " " +
+  String(m).padStart(2, "0") + " " +
+  String(s).padStart(2, "0");
   }
 
   setInterval(update, 1000);
