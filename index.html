@@ -580,7 +580,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // інакше — знімаємо блюр з усіх
   document.querySelectorAll('main section').forEach(section => {
     section.classList.remove('is-blurred');
+    
   });
+        section.is-blurred {
+  filter: blur(4px);
+  opacity: 0.35;
+}
 });
 </script>
           <div id="intro-overlay">
