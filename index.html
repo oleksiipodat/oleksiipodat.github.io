@@ -574,9 +574,35 @@ document.addEventListener('DOMContentLoaded', () => {
           <div id="intro-overlay">
   <div id="countdown-container">
     
-        <script src="https://cdn.logwork.com/widget/countdown.js"></script>
-<a href="https://logwork.com/countdown-timer" class="countdown-timer" data-style="columns" data-timezone="Europe/London" data-textcolor="#ffffff" data-date="2026-09-04 12:00" data-background="#ffffff" data-unitscolor="#ffffff">wwbtfe</a>
+       <script>
+  // Kyiv = UTC+3 (вересень — ще літній час)
+  const target = new Date("2026-09-04T12:00:00+03:00").getTime();
 
+  function update() {
+    const now = new Date().getTime();
+    const diff = target - now;
+
+    if (diff <= 0) {
+      document.getElementById("countdown").textContent = "000000";
+      return;
+    }
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+
+    // формат: DDHHMMSS (тільки цифри)
+    document.getElementById("countdown").textContent =
+      String(d).padStart(2, "0") +
+      String(h).padStart(2, "0") +
+      String(m).padStart(2, "0") +
+      String(s).padStart(2, "0");
+  }
+
+  setInterval(update, 1000);
+  update();
+</script>
   </div>
 </div>
     <script>
