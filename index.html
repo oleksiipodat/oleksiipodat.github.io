@@ -617,46 +617,171 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
-          <div id="intro-overlay">
+<div id="intro-overlay">
+
   <div id="countdown-container">
+
     <img
 
+      id="countdown-image"
+
       src="https://i.postimg.cc/HLwkGS0F/bw-cover-bc.jpg"
+
+      alt=""
+
       class="countdown-image"
-    />
-    />
+
+      draggable="false"
+
+    >
+
     <div id="countdown"></div>
-       <script>
-  // Kyiv = UTC+3 (вересень — ще літній час)
+
+  </div>
+
+</div>
+
+<script>
+
   const target = new Date("2026-09-04T12:00:00+03:00").getTime();
 
+  /*
+
+   * Точка, з якої починається поступове очищення картинки.
+
+   * Зараз — момент відкриття сторінки.
+
+   */
+
+  const start = Date.now();
+
+  const countdown = document.getElementById("countdown");
+
+  const countdownImage = document.getElementById("countdown-image");
+
   function update() {
-    const now = new Date().getTime();
+
+    const now = Date.now();
+
     const diff = target - now;
 
+    /*
+
+     * Прогрес:
+
+     * 0 = початок
+
+     * 1 = момент релізу
+
+     */
+
+    const totalTime = target - start;
+
+    const elapsed = now - start;
+
+    let progress = elapsed / totalTime;
+
+    progress = Math.max(0, Math.min(1, progress));
+
+    /*
+
+     * Плавніше очищення ближче до кінця.
+
+     * Якщо хочеш лінійне — заміни на:
+
+     * const clarity = progress;
+
+     */
+
+    const clarity = progress * progress;
+
+    /*
+
+     * 20px blur на початку
+
+     * 0px blur у момент target
+
+     */
+
+    const blur = 20 * (1 - clarity);
+
+    /*
+
+     * Невеликий zoom на початку,
+
+     * який теж поступово зникає.
+
+     */
+
+    const scale = 1.02 - (0.02 * clarity);
+
+    countdownImage.style.filter =
+
+      `blur(${blur}px)`;
+
+    countdownImage.style.transform =
+
+      `scale(${scale})`;
+
+    /*
+
+     * Countdown
+
+     */
+
     if (diff <= 0) {
-      document.getElementById("countdown").textContent = "000000";
+
+      countdown.textContent = "00 00 00 00";
+
+      countdownImage.style.filter = "blur(0px)";
+
+      countdownImage.style.transform = "scale(1)";
+
       return;
+
     }
 
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const m = Math.floor((diff / (1000 * 60)) % 60);
-    const s = Math.floor((diff / 1000) % 60);
+    const d = Math.floor(
 
-    // формат: DDHHMMSS (тільки цифри)
-   document.getElementById("countdown").textContent =
-  String(d).padStart(2, "0") + " " +
-  String(h).padStart(2, "0") + " " +
-  String(m).padStart(2, "0") + " " +
-  String(s).padStart(2, "0");
+      diff / (1000 * 60 * 60 * 24)
+
+    );
+
+    const h = Math.floor(
+
+      (diff / (1000 * 60 * 60)) % 24
+
+    );
+
+    const m = Math.floor(
+
+      (diff / (1000 * 60)) % 60
+
+    );
+
+    const s = Math.floor(
+
+      (diff / 1000) % 60
+
+    );
+
+    countdown.textContent =
+
+      String(d).padStart(2, "0") + " " +
+
+      String(h).padStart(2, "0") + " " +
+
+      String(m).padStart(2, "0") + " " +
+
+      String(s).padStart(2, "0");
+
   }
 
-  setInterval(update, 1000);
   update();
+
+  setInterval(update, 1000);
+
 </script>
-  </div>
-</div>
     <script>
   document.body.classList.add('intro-active');
 
