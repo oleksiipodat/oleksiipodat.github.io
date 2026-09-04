@@ -301,6 +301,34 @@ body.intro-active main {
   width: 300px;
   text-align: center;
 }
+      .countdown-link {
+  display: block;
+  width: 300px;
+  max-width: 80vw;
+  margin: 0 auto;
+  text-align: center;
+  text-decoration: none;
+  color: #505050;
+}
+
+.countdown-link:hover {
+  color: #505050;
+}
+
+.countdown-link .countdown-image {
+  margin-bottom: 20px;
+}
+
+#countdown {
+  font-size: 16px;
+  color: #505050;
+}
+
+.preorder {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #505050;
+}
     </style>
   </head>
 
@@ -621,26 +649,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   <div id="countdown-container">
 
-    <img
-
-      id="countdown-image"
-
-      src="https://i.postimg.cc/HLwkGS0F/bw-cover-bc.jpg"
-
-      alt=""
-
-      class="countdown-image"
-
-      draggable="false"
-
+    <a
+      href="https://podat.bandcamp.com/album/we-were-born-to-feel-everything-2"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="countdown-link"
     >
 
-    <div id="countdown"></div>
+      <img
+        id="countdown-image"
+        src="https://i.postimg.cc/HLwkGS0F/bw-cover-bc.jpg"
+        alt="We Were Born to Feel Everything"
+        class="countdown-image"
+        draggable="false"
+      >
+
+      <div id="countdown"></div>
+
+      <div class="preorder">Pre-order</div>
+
+    </a>
 
   </div>
 
 </div>
-
 <script>
 
   const target = new Date("2026-09-11T12:00:00+03:00").getTime();
@@ -787,13 +819,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const overlay = document.getElementById('intro-overlay');
 
-  overlay.addEventListener('click', (e) => {
-    // тільки якщо клік НЕ по самому каунтдауну
-    if (!e.target.closest('#countdown-container')) {
-      document.body.classList.remove('intro-active');
-      overlay.style.display = 'none';
-    }
-  });
+overlay.addEventListener('click', (e) => {
+  // якщо клік по Pre-order / обкладинці / таймеру — відкриваємо Bandcamp
+  if (e.target.closest('.countdown-link')) return;
+
+  document.body.classList.remove('intro-active');
+  overlay.style.display = 'none';
+});
 </script>
   </body>
 </html>
