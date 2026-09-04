@@ -301,6 +301,13 @@ body.intro-active main {
   width: 300px;
   text-align: center;
 }
+      /* Обкладинка не інвертується в нічному режимі */
+
+#countdown-image {
+
+  filter: invert(1) hue-rotate(180deg) !important;
+
+}
       .countdown-link {
   display: block;
   width: 300px;
@@ -568,17 +575,11 @@ body.intro-active main {
   const now = new Date();
   const hour = now.getHours();
 
-  // Нічний режим з 22:00 до 6:00
+  // Нічний режим з 20:00 до 7:00
   const isNight = hour >= 20 || hour < 7;
 
   if (isNight) {
     document.documentElement.style.filter = 'invert(1) hue-rotate(180deg)';
-
-    // Повертаємо зображення до нормального вигляду
-    const img = document.getElementById('blur-image');
-    if (img) {
-      img.style.filter = 'invert(1) hue-rotate(180deg)'; // двічі — як компенсація
-    }
   }
 </script>
   <script>
