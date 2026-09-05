@@ -573,15 +573,11 @@ body.intro-active main {
       <div class="blur-overlay"></div>
     </div>
 <script>
-  const now = new Date();
-  const hour = now.getHours();
 
-  // Нічний режим з 20:00 до 7:00
-  const isNight = hour >= 20 || hour < 7;
+  // Нічний режим завжди
 
-  if (isNight) {
-    document.documentElement.style.filter = 'invert(1) hue-rotate(180deg)';
-  }
+  document.documentElement.style.filter = 'invert(1) hue-rotate(180deg)';
+
 </script>
   <script>
       const img = document.getElementById('blur-image');
